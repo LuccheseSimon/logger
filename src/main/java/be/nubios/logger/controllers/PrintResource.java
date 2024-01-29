@@ -1,15 +1,17 @@
 package be.nubios.logger.controllers;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @Slf4j
 public class PrintResource {
 
-    @GetMapping
-    public void log() {
-        log.info("Hello, thanks for the log");
+    @GetMapping("/log")
+    public String log() {
+        String message = "Hello, thanks for the log";
+        log.info(message);
+        return message;
     }
 }
